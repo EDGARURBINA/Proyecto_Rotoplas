@@ -5,9 +5,9 @@ import random
 class TinacoContext:
     def __init__(self):
         self.lock = Lock()
-        self.capacidad_max = 1000  # litros
-        self.capacidad_min = 100   # litros
-        self.nivel_agua = 300      # litros iniciales
+        self.capacidad_max = 1000  # Tods los litros iniciales
+        self.capacidad_min = 100  
+        self.nivel_agua = 300      
         self.bomba_activa = False
         self.bomba_evento = Event()
         self.lluvia_evento = Event()
@@ -218,7 +218,7 @@ def main():
         # Crear contexto compartido
         tinaco = TinacoContext()
         
-        # Crear procesos
+        # procesos
         procesos = [
             Process(name="Pluvial", target=proceso_pluvial, args=(tinaco, terminar_evento)),
             Process(name="Cisterna", target=proceso_cisterna, args=(tinaco, terminar_evento)),
